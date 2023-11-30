@@ -229,6 +229,38 @@ int main(void) {
     sprintf(test.actual, "retvalue: %d", res);
     test_assert(res == res_og, test);
     printf("\n");
+    // test 25
+    test.id = 25;
+    res = ft_printf("%s", "Bonjour"); // Use the function
+    res_og = printf("%s", "Bonjour"); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 26
+    test.id = 26;
+    res = ft_printf("%s"); // Use the function
+    res_og = printf("%s"); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 27
+    test.id = 27;
+    res = ft_printf("%s%"); // Use the function
+    res_og = printf("%s%"); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 28
+    test.id = 28;
+    res = ft_printf("%s%c", "Oui: ",  'O'); // Use the function
+    res_og = printf("%s%c", "Oui: ",  'O'); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
 
     if (test_passed == nb_test)
         printf("\nAll tests passed (%d/%d)\n", test_passed, nb_test);
