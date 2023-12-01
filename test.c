@@ -317,6 +317,15 @@ int main(void) {
     sprintf(test.actual, "retvalue: %d", res);
     test_assert(res == res_og, test);
     printf("\n");
+    // test 46
+    test.id = 46;
+    n_ptr = (size_t)-1;
+    res = ft_printf("%p\n", n_ptr); // Use the function
+    res_og = printf("%p\n", n_ptr); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
     // test 35
     test.id = 35;
     int n_int = -2147483648;
@@ -392,6 +401,51 @@ int main(void) {
     n_uint = (unsigned int)-1;
     res = ft_printf("%u\n", n_uint); // Use the function
     res_og = printf("%u\n", n_uint); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 44
+    test.id = 44;
+    n_uint = (unsigned int)-1;
+    res = ft_printf("%x\n", n_uint); // Use the function
+    res_og = printf("%x\n", n_uint); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 45
+    test.id = 45;
+    n_uint = (unsigned int)-1;
+    res = ft_printf("%X\n", n_uint); // Use the function
+    res_og = printf("%X\n", n_uint); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 46
+    test.id = 46;
+    n_uint = 0;
+    res = ft_printf("%X\n", n_uint); // Use the function
+    res_og = printf("%X\n", n_uint); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 47
+    test.id = 47;
+    n_uint = 243;
+    res = ft_printf("%x\n", n_uint); // Use the function
+    res_og = printf("%x\n", n_uint); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 48
+    test.id = 48;
+    n_uint = 243;
+    res = ft_printf("%X\n", n_uint); // Use the function
+    res_og = printf("%X\n", n_uint); // Use the function
     sprintf(test.expected, "retvalue: %d", res_og);
     sprintf(test.actual, "retvalue: %d", res);
     test_assert(res == res_og, test);
