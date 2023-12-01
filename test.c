@@ -369,6 +369,33 @@ int main(void) {
     // sprintf(test.actual, "retvalue: %d", res);
     // test_assert(res == res_og, test);
     // printf("\n");
+    // test 41
+    test.id = 41;
+    unsigned int n_uint = 0;
+    res = ft_printf("%u\n", n_uint); // Use the function
+    res_og = printf("%u\n", n_uint); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 42
+    test.id = 42;
+    n_uint = 120;
+    res = ft_printf("%u\n", n_uint); // Use the function
+    res_og = printf("%u\n", n_uint); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 43
+    test.id = 43;
+    n_uint = (unsigned int)-1;
+    res = ft_printf("%u\n", n_uint); // Use the function
+    res_og = printf("%u\n", n_uint); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
 
 
 
