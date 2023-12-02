@@ -11,7 +11,7 @@ typedef struct s_test_data {
     int     id;
 } t_test_data;
 
-void    test_assert(int condition, t_test_data test)
+static void    test_assert(int condition, t_test_data test)
 {
     nb_test++;
     if (!condition)
@@ -25,7 +25,7 @@ void    test_assert(int condition, t_test_data test)
 }
 
 // Those tests requires to remove flags -Wall -Werror -Wextra
-void    weird_tests()
+static void    weird_tests()
 {
     t_test_data test;
     int res;
@@ -177,16 +177,7 @@ void    weird_tests()
     sprintf(test.expected, "retvalue: %d", res_og);
     sprintf(test.actual, "retvalue: %d", res);
     test_assert(res == res_og, test);
-    printf("\n");
-    // test 29
-    test.id = 29;
-    null_ptr = NULL;
-    res = ft_printf("%s", null_ptr); // Use the function
-    res_og = printf("%s", null_ptr); // Use the function
-    sprintf(test.expected, "retvalue: %d", res_og);
-    sprintf(test.actual, "retvalue: %d", res);
-    test_assert(res == res_og, test);
-    printf("\n");
+    printf("\n"); 
     // test 32
     test.id = 32;
     n_ptr = 1;
@@ -241,7 +232,7 @@ void    weird_tests()
     // printf("\n");
 }
 
-void    normal_tests()
+static void    normal_tests()
 {
     t_test_data test;
     int res;
@@ -250,6 +241,7 @@ void    normal_tests()
     int n = 50;
     int *n_ptr = &n;
     int *n_null = NULL;
+    char    *null_ptr = NULL;
 
 
     // test 1
@@ -336,6 +328,15 @@ void    normal_tests()
     test.id = 28;
     res = ft_printf("%s%c", "Oui: ",  'O'); // Use the function
     res_og = printf("%s%c", "Oui: ",  'O'); // Use the function
+    sprintf(test.expected, "retvalue: %d", res_og);
+    sprintf(test.actual, "retvalue: %d", res);
+    test_assert(res == res_og, test);
+    printf("\n");
+    // test 29
+    test.id = 29;
+    null_ptr = NULL;
+    res = ft_printf("%s", null_ptr); // Use the function
+    res_og = printf("%s", null_ptr); // Use the function
     sprintf(test.expected, "retvalue: %d", res_og);
     sprintf(test.actual, "retvalue: %d", res);
     test_assert(res == res_og, test);
@@ -470,7 +471,7 @@ void    normal_tests()
 
 int main(void) {
 
-    // weird_tests();
+    weird_tests();
     normal_tests();
 
     if (test_passed == nb_test)
