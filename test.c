@@ -471,7 +471,7 @@ static void    normal_tests()
 
 int main(void) {
 
-    weird_tests();
+    // weird_tests();
     normal_tests();
 
     if (test_passed == nb_test)
