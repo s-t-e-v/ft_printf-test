@@ -15,13 +15,14 @@ static void    test_assert(int condition, t_test_data test)
 {
     nb_test++;
     if (!condition)
-    {
-        printf("\nFail test #%d\n", test.id);
-        printf("   Expected: %s\n", test.expected);
-        printf("   Actual: %s\n", test.actual);
-    }
+        printf("\nFail test #%d", test.id);
     else
+    {
+        printf("\nSUCCESS test #%d", test.id);
         test_passed++;
+    }
+    printf("   Expected: %s", test.expected);
+    printf("   Actual: %s\n", test.actual);
 }
 
 // Those tests requires to remove flags -Wall -Werror -Wextra
@@ -261,8 +262,8 @@ static void    normal_tests()
     printf("\n");
     // test 3
     test.id = 3;
-    res = ft_printf("%c", 'u'); // Use the function
-    res_og = printf("%c", 'u'); // Use the function
+    res = ft_printf("%c\n", 'u'); // Use the function
+    res_og = printf("%c\n", 'u'); // Use the function
     sprintf(test.expected, "retvalue: %d", res_og);
     sprintf(test.actual, "retvalue: %d", res);
     test_assert(res == res_og, test);
