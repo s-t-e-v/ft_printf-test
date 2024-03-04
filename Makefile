@@ -1,31 +1,31 @@
 NAME = libftprintf.a
-SRCS =  print_char.c \
-		print_str.c \
-		print_nbr.c \
-		print_hex.c \
-		print_format.c \
-		print_substr.c \
-		ft_printf.c \
-
+SRCS = conv.c ft_printf.c ft_dprintf.c helper.c len.c len2.c print.c print2.c
 OBJS = $(SRCS:.c=.o)
 FLAGS = -Wall -Wextra -Werror
-FLOGS = 
-TEST_DIR = test
+LIBFT_DIR = libft/
+LIBFT = $(LIBFT_DIR)/libft.a
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS) 
+$(NAME): $(OBJS) $(LIBFT)
+	ar -x $(LIBFT)
+	ar rc $(NAME) $(OBJS) *.o
 	ranlib $(NAME)
+	rm -f *.o
 
 %.o: %.c
-	cc $(FLAGS) -g -c $< -o $@ 
+	cc $(FLAGS) -g -c $< -o $@ -I$(LIBFT_DIR)
+
+$(LIBFT):
+	make -C $(LIBFT_DIR)
 
 clean:
 	rm -f $(OBJS)
+	make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	rm -f $(NAME)
+	make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 

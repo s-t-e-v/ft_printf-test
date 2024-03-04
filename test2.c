@@ -1,4 +1,4 @@
-#include "../ft_printf.h"
+#include "../libft/libft.h"
 #include <stdio.h>
 #define FT "ft_printf"
 
@@ -26,6 +26,7 @@ static void    test_assert(int condition, t_test_data test)
 }
 
 // Those tests requires to remove flags -Wall -Werror -Wextra
+
 static void    weird_tests()
 {
     t_test_data test;
@@ -34,7 +35,7 @@ static void    weird_tests()
     char    *null_ptr = NULL;
     int *n_ptr;
 
-
+    printf("---- Weird tests ----\n\n");
     // test 7
     test.id = 7;
     res = ft_printf("Le R%cR %; est ok.", 'E', 'C'); // Use the function
@@ -233,6 +234,7 @@ static void    weird_tests()
     // printf("\n");
 }
 
+
 static void    normal_tests()
 {
     t_test_data test;
@@ -245,6 +247,7 @@ static void    normal_tests()
     char    *null_ptr = NULL;
 
 
+    printf("---- Normal tests ----\n\n");
     // test 1
     test.id = 1;
     res = ft_printf("Hello World!\n"); // Use the function
@@ -473,7 +476,12 @@ static void    normal_tests()
 int main(void) {
 
     weird_tests();
-    // normal_tests();
+    normal_tests();
+    // printf("printf: %d\n", printf("%c", 0));
+    // printf("ft_printf: %d\n", ft_printf("%c", 0));
+
+	// printf("printf: %d\n",       printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0));
+	// printf("ft_printf: %d\n", ft_printf("%%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %%%c%%%s%%%d%%%i%%%u%%%x%%%X%%%% %c%%", 'A', "42", 42, 42 ,42 , 42, 42, 'B', "-42", -42, -42 ,-42 ,-42, 42, 'C', "0", 0, 0 ,0 ,0, 42, 0));
 
     if (test_passed == nb_test)
         printf("\nAll tests passed (%d/%d)\n", test_passed, nb_test);
